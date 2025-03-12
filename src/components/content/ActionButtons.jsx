@@ -1,10 +1,13 @@
 import React from 'react';
 import { Box, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const ActionButtons = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
       <Button 
+        component={Link}
+        to="/coleccion"
         variant="contained" 
         sx={{ 
           borderRadius: '50px',
@@ -24,6 +27,8 @@ const ActionButtons = () => {
         Ver Colección Completa
       </Button>
       <Button 
+        component={Link}
+        to="/fotografo"
         variant="outlined" 
         sx={{ 
           borderRadius: '50px',

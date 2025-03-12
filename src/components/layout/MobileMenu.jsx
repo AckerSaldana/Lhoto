@@ -7,9 +7,19 @@ import {
   ListItem,
   ListItemText
 } from '@mui/material';
+import { Link, useLocation } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
 
 const MobileMenu = ({ menuOpen, toggleMenu }) => {
+  const location = useLocation();
+  
+  // Arreglo con los items del menú
+  const menuItems = [
+    { name: 'Galería', path: '/galeria' },
+    { name: 'Explorar', path: '/explorar' },
+    { name: 'Contacto', path: '/contacto' }
+  ];
+
   return (
     <Drawer
       anchor="right"
@@ -35,10 +45,21 @@ const MobileMenu = ({ menuOpen, toggleMenu }) => {
         </IconButton>
       </Box>
       <List sx={{ p: 4 }}>
-        {['Galería', 'Explorar', 'Contacto'].map((text) => (
-          <ListItem button key={text} sx={{ mb: 2 }}>
+        {menuItems.map((item) => (
+          <ListItem 
+            button 
+            key={item.name} 
+            component={Link}
+            to={item.path}
+            onClick={toggleMenu}
+            sx={{ 
+              mb: 2,
+              backgroundColor: location.pathname === item.path ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+              borderRadius: 1
+            }}
+          >
             <ListItemText 
-              primary={text} 
+              primary={item.name} 
               primaryTypographyProps={{ 
                 fontSize: '1.2rem', 
                 fontWeight: 300,

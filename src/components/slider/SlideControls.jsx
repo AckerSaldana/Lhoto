@@ -5,46 +5,87 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const SlideControls = ({ onPrev, onNext }) => {
   return (
-    <Box sx={{
-      position: 'absolute',
-      bottom: { xs: 12, md: 20 },
-      right: { xs: 16, md: 24 },
-      display: 'flex',
-      gap: 1,
-      zIndex: 20
-    }}>
-      <IconButton
-        onClick={onPrev}
+    <>
+      {/* Control izquierdo con efecto hover mejorado */}
+      <Box 
         sx={{
-          backgroundColor: 'rgba(0,0,0,0.3)',
-          backdropFilter: 'blur(4px)',
-          color: 'white',
-          width: { xs: 36, md: 44 },
-          height: { xs: 36, md: 44 },
-          '&:hover': { 
-            backgroundColor: 'rgba(255,255,255,0.2)',
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          bottom: 0,
+          width: '80px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 10,
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.4) 0%, transparent 100%)',
+          opacity: 0,
+          transition: 'opacity 0.3s ease',
+          '&:hover': {
+            opacity: 1
           }
         }}
       >
-        <ArrowBackIosNewIcon sx={{ fontSize: { xs: 15, md: 18 }}} />
-      </IconButton>
+        <IconButton
+          onClick={onPrev}
+          sx={{
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            backdropFilter: 'blur(4px)',
+            color: 'white',
+            width: { xs: 40, md: 48 },
+            height: { xs: 40, md: 48 },
+            transition: 'all 0.3s ease',
+            '&:hover': { 
+              backgroundColor: 'rgba(97,218,251,0.7)',
+              transform: 'scale(1.1)'
+            },
+            boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
+          }}
+        >
+          <ArrowBackIosNewIcon sx={{ fontSize: { xs: 16, md: 20 }, ml: 1 }} />
+        </IconButton>
+      </Box>
 
-      <IconButton
-        onClick={onNext}
+      {/* Control derecho con efecto hover mejorado */}
+      <Box 
         sx={{
-          backgroundColor: 'rgba(0,0,0,0.3)',
-          backdropFilter: 'blur(4px)',
-          color: 'white',
-          width: { xs: 36, md: 44 },
-          height: { xs: 36, md: 44 },
-          '&:hover': { 
-            backgroundColor: 'rgba(255,255,255,0.2)',
+          position: 'absolute',
+          right: 0,
+          top: 0,
+          bottom: 0,
+          width: '80px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 10,
+          background: 'linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.4) 100%)',
+          opacity: 0,
+          transition: 'opacity 0.3s ease',
+          '&:hover': {
+            opacity: 1
           }
         }}
       >
-        <ArrowForwardIosIcon sx={{ fontSize: { xs: 15, md: 18 } }} />
-      </IconButton>
-    </Box>
+        <IconButton
+          onClick={onNext}
+          sx={{
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            backdropFilter: 'blur(4px)',
+            color: 'white',
+            width: { xs: 40, md: 48 },
+            height: { xs: 40, md: 48 },
+            transition: 'all 0.3s ease',
+            '&:hover': { 
+              backgroundColor: 'rgba(97,218,251,0.7)',
+              transform: 'scale(1.1)'
+            },
+            boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
+          }}
+        >
+          <ArrowForwardIosIcon sx={{ fontSize: { xs: 16, md: 20 }, ml: -0.5 }} />
+        </IconButton>
+      </Box>
+    </>
   );
 };
 
